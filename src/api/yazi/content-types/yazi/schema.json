@@ -16,6 +16,24 @@
     },
     "Icerik": {
       "type": "blocks"
+    },
+    "yazar": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::yazar.yazar",
+      "inversedBy": "yazis"
+    },
+    "kategori": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::kategori.kategori",
+      "inversedBy": "yazis"
+    },
+    "etikets": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::etiket.etiket",
+      "mappedBy": "yazis"
     }
   }
 }

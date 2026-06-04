@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "kategoris",
+  "collectionName": "etikets",
   "info": {
-    "singularName": "kategori",
-    "pluralName": "kategoris",
-    "displayName": "Kategori"
+    "singularName": "etiket",
+    "pluralName": "etikets",
+    "displayName": "Etiket"
   },
   "options": {
     "draftAndPublish": true
@@ -16,9 +16,9 @@
     },
     "yazis": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::yazi.yazi",
-      "mappedBy": "kategori"
+      "inversedBy": "etikets"
     }
   }
 }

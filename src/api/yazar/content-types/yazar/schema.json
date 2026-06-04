@@ -29,6 +29,12 @@
     },
     "Iletisim": {
       "type": "email"
+    },
+    "yazis": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::yazi.yazi",
+      "mappedBy": "yazar"
     }
   }
 }
