@@ -14,9 +14,6 @@
     "Baslik": {
       "type": "string"
     },
-    "Icerik": {
-      "type": "blocks"
-    },
     "yazar": {
       "type": "relation",
       "relation": "manyToOne",
@@ -34,6 +31,19 @@
       "relation": "manyToMany",
       "target": "api::etiket.etiket",
       "mappedBy": "yazis"
+    },
+    "Icerik2": {
+      "type": "text"
+    },
+    "Kapak_resmi": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
