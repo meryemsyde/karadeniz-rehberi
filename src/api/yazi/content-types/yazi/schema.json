@@ -44,6 +44,12 @@
         "videos",
         "audios"
       ]
+    },
+    "Govde_Bilesenleri": {
+      "type": "dynamiczone",
+      "components": [
+        "blog-parcalari.slogan"
+      ]
     }
   }
 }

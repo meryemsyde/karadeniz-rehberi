@@ -634,6 +634,7 @@ export interface ApiYaziYazi extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     etikets: Schema.Attribute.Relation<'manyToMany', 'api::etiket.etiket'>;
+    Govde_Bilesenleri: Schema.Attribute.DynamicZone<['blog-parcalari.slogan']>;
     Icerik2: Schema.Attribute.Text;
     Kapak_resmi: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
