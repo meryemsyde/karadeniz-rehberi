@@ -443,24 +443,37 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiCityCity extends Struct.CollectionTypeSchema {
   collectionName: 'cities';
   info: {
-    displayName: 'City';
+    displayName: 'Sehir';
     pluralName: 'cities';
     singularName: 'city';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Country: Schema.Attribute.String;
+    Ad: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::city.city'> &
-      Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
-    place: Schema.Attribute.Relation<'oneToOne', 'api::place.place'>;
+    Kisa_Bilgi: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::city.city'>;
+    mekanlar: Schema.Attribute.Relation<'oneToMany', 'api::place.place'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -560,26 +573,52 @@ export interface ApiKategoriKategori extends Struct.CollectionTypeSchema {
 export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
   collectionName: 'places';
   info: {
-    displayName: 'Place';
+    displayName: 'Mekanlar';
     pluralName: 'places';
     singularName: 'place';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    city: Schema.Attribute.Relation<'oneToOne', 'api::city.city'>;
-    Cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.Blocks;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::place.place'> &
-      Schema.Attribute.Private;
+    Kapak_resmi: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::place.place'>;
+    Puan: Schema.Attribute.Float &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
-    Rating: Schema.Attribute.Float;
-    Title: Schema.Attribute.String;
+    sehir: Schema.Attribute.Relation<'manyToOne', 'api::city.city'>;
+    Tanim: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

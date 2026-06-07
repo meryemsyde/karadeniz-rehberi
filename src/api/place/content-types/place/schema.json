@@ -4,24 +4,40 @@
   "info": {
     "singularName": "place",
     "pluralName": "places",
-    "displayName": "Place"
+    "displayName": "Mekanlar"
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
-    "Description": {
-      "type": "blocks"
+    "Puan": {
+      "type": "float",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
-    "Rating": {
-      "type": "float"
-    },
-    "Cover": {
+    "Kapak_resmi": {
       "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "multiple": false,
       "allowedTypes": [
         "images",
@@ -30,11 +46,19 @@
         "audios"
       ]
     },
-    "city": {
+    "sehir": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::city.city",
-      "inversedBy": "place"
+      "inversedBy": "mekanlar"
+    },
+    "Tanim": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
