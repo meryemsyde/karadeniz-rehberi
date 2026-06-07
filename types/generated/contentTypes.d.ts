@@ -586,6 +586,12 @@ export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    Baslik: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -608,12 +614,6 @@ export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     sehir: Schema.Attribute.Relation<'manyToOne', 'api::city.city'>;
     Tanim: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

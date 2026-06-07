@@ -15,7 +15,7 @@
     }
   },
   "attributes": {
-    "Title": {
+    "Baslik": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
